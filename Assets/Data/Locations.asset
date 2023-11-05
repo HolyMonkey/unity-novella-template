@@ -12,5 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 572c474ec42bc30489f9ad005c0477f2, type: 3}
   m_Name: Locations
   m_EditorClassIdentifier: 
-  _kitchen: {fileID: 21300000, guid: b80061cddc7ce7845828b0bcb52ae24c, type: 3}
-  _entrance: {fileID: 0}
+  _laneWithBike: {fileID: 21300000, guid: 66125f6eb0a2f5c699f6da3e1be5a64c, type: 3}
+  _groveStreet: {fileID: 21300000, guid: b19f074a4e03a290bb456a524836c9d5, type: 3}
+  _home: {fileID: 21300000, guid: 9a6edfc54871c9a6ca556dd30dd4e855, type: 3}
+  _gettho: {fileID: 21300000, guid: fe67c3c9f155ffcc9aa1ac7092769032, type: 3}

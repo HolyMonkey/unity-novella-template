@@ -3,6 +3,7 @@ using UnityEngine.UI;
 using TMPro;
 using UnityEngine.Events;
 using DG.Tweening;
+using Unity.Mathematics;
 
 public class DialogueWindowView : MonoBehaviour
 {
@@ -18,38 +19,32 @@ public class DialogueWindowView : MonoBehaviour
         foreach (Transform child in _chooseButtonsContainer)
             child.gameObject.SetActive(false);
 
-        float talkAnimationDuration = window.Message.Length / 25;
-
+        float talkAnimationDuration = window.Message.Length / 25F;
+        _interlocutorView.rectTransform.SetLocalPositionAndRotation(new Vector3(-295.5f, -116.070007f, 0), quaternion.identity);
         _interlocutorView.sprite = characters.Get(window.Interlocuto);
+        _interlocutorView.transform.DOKill();
         _interlocutorView.transform.DOShakePosition(talkAnimationDuration, 2, 3, fadeOut: false).SetEase(Ease.OutElastic);
         _whereView.sprite = locations.Get(window.Where);
-        _messageView.text = "";
-        _messageView.DOText(window.Message, talkAnimationDuration).SetEase(Ease.Linear).OnComplete(() =>
-        {            
-            int i = 0;
-            foreach (var choose in window.Chooses)
+        _messageView.DOKill();
+        _messageView.text = " ";
+        _messageView.DOText(window.Message, talkAnimationDuration).SetEase(Ease.Linear);
+        int i = 0;
+        foreach (var choose in window.Chooses)
+        {
+            Button chooseButton = _chooseButtonsContainer.GetChild(i++).GetComponent<Button>();
+            Text text = chooseButton.GetComponentInChildren<Text>();
+
+            chooseButton.onClick.AddListener(() =>
             {
-                Button chooseButton = _chooseButtonsContainer.GetChild(i++).GetComponent<Button>();
-                Text text = chooseButton.GetComponentInChildren<Text>();
+                onChoose?.Invoke(choose);
+            });
+            text.text = choose.Message;
+            chooseButton.gameObject.SetActive(true);
+        }
 
-                chooseButton.onClick.AddListener(() => onChoose?.Invoke(choose));
-                text.text = choose.Message;
-                chooseButton.gameObject.SetActive(true);
-
-                chooseButton.GetComponent<Image>().DOFade(0, 0f).OnComplete(() =>
-                {
-                    chooseButton.GetComponent<Image>().DOFade(1, 1f);
-                });
-            }
-
-            if (i > 0)
-            {
-                _chooseButtonsContainer.gameObject.SetActive(true);
-                _chooseButtonsContainer.GetComponent<Image>().DOFade(0, 0f).OnComplete(() =>
-                {
-                    _chooseButtonsContainer.GetComponent<Image>().DOFade(1, 1f);
-                });
-            }
-        });
+        if (i > 0)
+        {
+            _chooseButtonsContainer.gameObject.SetActive(true);
+        }
     }
 }

@@ -12,5 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96076aa8e8924e142ae10b934c113147, type: 3}
   m_Name: Characters
   m_EditorClassIdentifier: 
-  _protagonist: {fileID: 21300000, guid: 7677a0a0a67858c4e845d695d480528f, type: 3}
-  _antagonist: {fileID: 21300000, guid: 234b98fbad1bf074da01cd7bd2146daf, type: 3}
+  _cj: {fileID: 21300000, guid: 2905a019346cf5bccbc3bb927a1a8c13, type: 3}
+  _bigSmoke: {fileID: 21300000, guid: 8e32738ab735498f1bd6b69bf1b03308, type: 3}
+  _bigSmokeShoots: {fileID: 21300000, guid: 130d49e51e362e303affcb1da27cd80d, type: 3}
+  _narcoDiller: {fileID: 21300000, guid: cc9e582f1044dd7ca98d5773a8284c34, type: 3}
+  _sweet: {fileID: 21300000, guid: 250906824d30d883180a8fe03a282f0b, type: 3}
+  _policeman: {fileID: 21300000, guid: 7b8c2de902a6203b293cc2a2f04cb9d4, type: 3}
