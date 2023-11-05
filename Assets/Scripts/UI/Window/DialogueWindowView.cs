@@ -33,6 +33,7 @@ public class DialogueWindowView : MonoBehaviour
                 Text text = chooseButton.GetComponentInChildren<Text>();
 
                 chooseButton.onClick.AddListener(() => onChoose?.Invoke(choose));
+                text.text = choose.Message;
                 chooseButton.gameObject.SetActive(true);
 
                 chooseButton.GetComponent<Image>().DOFade(0, 0f).OnComplete(() =>
