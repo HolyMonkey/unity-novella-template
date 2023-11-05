@@ -4,20 +4,26 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "Data/Locations")]
 public class LocationsDataSet : ScriptableObject
 {
-    [SerializeField] private Sprite _kitchen;
-    [SerializeField] private Sprite _entrance;
+    [SerializeField] private Sprite _laneWithBike;
+    [SerializeField] private Sprite _groveStreet;
+    [SerializeField] private Sprite _home;
+    [SerializeField] private Sprite _gettho;
 
     public Sprite Get(Location location) =>
         location switch
         {
-            Location.Kitchen => _kitchen,
-            Location.Entrance => _entrance,
+            Location.LaneWithBike => _laneWithBike,
+            Location.GroveStreet => _groveStreet,
+            Location.Home => _home,
+            Location.Gettho => _gettho,
             _ => throw new NotImplementedException()
         };
 }
 
 public enum Location
 {
-    Kitchen,
-    Entrance
+    LaneWithBike,
+    GroveStreet,
+    Home,
+    Gettho,
 }
