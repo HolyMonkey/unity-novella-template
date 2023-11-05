@@ -21,7 +21,10 @@ public class WindowPresenter : MonoBehaviour
         WideScreen.gameObject.SetActive(false);
 
         DialogueWindowView view = GetView();
-        view.Show(dialogueWindow, _characters, _locations);
+        view.Show(dialogueWindow, _characters, _locations, (choose) =>
+        {
+            Show(_windows.Get(choose.TargetWindow));
+        });
         view.gameObject.SetActive(true);
     }
 

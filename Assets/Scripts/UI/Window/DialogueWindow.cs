@@ -8,26 +8,28 @@ public class DialogueWindow : Window
     [SerializeField] private Character _interlocutor;
     [SerializeField] private Location _where;
     [SerializeField] private string _message;
-
+    [SerializeField] private List<DialogueChoose> _chooses;
     [SerializeField] private int _id = -1;
 
     public Character Interlocuto => _interlocutor; 
     public Location Where => _where;
     public string Message => _message; 
+    public IReadOnlyCollection<DialogueChoose> Chooses => _chooses;
+    public int Id => _id;
 
-    //TODO: Not working
     [CreateAssetMenu(menuName = "Data/Windows")]
     public class WindowsDataSet : ScriptableObject
     {
         [SerializeField] private List<DialogueWindow> _dialogues;
-
-        private int _lastId = 0;
-
-        private void OnValidate()
-        {
-            foreach (var dialogue in _dialogues)
-                if (dialogue._id == -1)
-                    dialogue._id = ++_lastId;
-        }
     }
+}
+
+[Serializable]
+public class DialogueChoose
+{
+    [SerializeField] private string _message;
+    [SerializeField] private int _targetWindow;
+
+    public string Message => _message;
+    public int TargetWindow => _targetWindow;
 }

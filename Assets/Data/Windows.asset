@@ -16,20 +16,29 @@ MonoBehaviour:
   - _interlocutor: 0
     _where: 0
     _message: '"Hello! I''m orc!"'
+    _chooses:
+    - _message: "\u041F\u043E\u043D\u044F\u043B"
+      _targetWindow: 2
+    - _message: "\u041D\u0435 \u043F\u043E\u043D\u044F\u043B"
+      _targetWindow: 3
+    _id: 1
+  - _interlocutor: 0
+    _where: 0
+    _message: 2
+    _chooses: []
+    _id: 2
+  - _interlocutor: 1
+    _where: 0
+    _message: 3
+    _chooses: []
+    _id: 3
+  - _interlocutor: 0
+    _where: 0
+    _message: 
+    _chooses: []
     _id: -1
   - _interlocutor: 0
     _where: 0
     _message: 
-    _id: -1
-  - _interlocutor: 0
-    _where: 0
-    _message: 
-    _id: -1
-  - _interlocutor: 0
-    _where: 0
-    _message: 
-    _id: -1
-  - _interlocutor: 0
-    _where: 0
-    _message: 
+    _chooses: []
     _id: -1
