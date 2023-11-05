@@ -34,6 +34,7 @@ public class DialogueWindowView : MonoBehaviour
             Button chooseButton = _chooseButtonsContainer.GetChild(i++).GetComponent<Button>();
             Text text = chooseButton.GetComponentInChildren<Text>();
 
+            chooseButton.onClick.RemoveAllListeners();
             chooseButton.onClick.AddListener(() =>
             {
                 onChoose?.Invoke(choose);
